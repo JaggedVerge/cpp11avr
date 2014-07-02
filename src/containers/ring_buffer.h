@@ -1,4 +1,4 @@
-/** \file buffer implementation
+/** \file ring buffer implementation
 */
 #ifndef RING_BUFFER_H
 #define RING_BUFFER_H
@@ -12,8 +12,9 @@
 #define ELEMENT_ADDED_OVERWRITE -1
 
 /** \brief This is a ring buffer implementation.
+ *
  *template parameter1: T, the type we are storing
- *template parameter2: the maximum size of the stack
+ *template parameter2: the maximum size of the buffer
  *
  *The implementation approach used here is to keep track of the position
  *in the array of the first and last elements and also to keep track of
@@ -24,6 +25,7 @@ template<
 	uint8_t BUFFER_SIZE
 >
 class ring_buffer{
+//TODO consider a specialization for a 1 element long circular buffer
 static_assert(BUFFER_SIZE > 1,"A circular buffer of size < 2 doesn't make any sense, use a different data type instead.");
 
 	public:
